@@ -1,0 +1,127 @@
+package prac;
+import java.util.*;
+public class money {
+    
+    public static void main(String[] args){
+
+        Scanner m = new Scanner(System.in);
+        System.out.print("Enter a Dollar amount: ");
+        int money = m.nextInt();
+
+        if(money<10){
+            int charge=1;
+            System.out.println("Charge is $"+ charge);
+        }else if(money>10 || money<100){
+            double amount = (money*0.10);
+            System.out.println("Charge is $"+ amount);
+        }else if(money>100){
+            double charge1 = (5 + (money * 0.5));
+            System.out.println("Charge is $"+ charge1);
+        }else if(money<1000){
+            double charge2 = (40 + (money * 0.1));
+            System.out.println("Charge is $"+ charge2);
+        }
+    }
+}
+
+------------------------------------------
+
+package prac;
+import java.util.*;
+public class difficult {
+
+    public static void main(String[] args){
+    
+        try{
+            
+        Double wage;
+        Double hour;
+        Double totalTax =(double) 0;
+        Double totalNet = (double) 0;
+        Double totalInsurance = (double) 0;
+        int numEmployee = 0;
+        int insurance = 50;
+        
+        for(int x=0;x<1;){
+            x++;
+        Scanner p = new Scanner(System.in);
+        x=0;
+        
+        System.out.println("\nWELCOME TO ABC's PAYROLL SYSTEM");
+        System.out.print("Enter Employee's Name: ");
+        String name = p.nextLine();
+        if(name.equalsIgnoreCase("Done")){
+            x=1;
+           
+                System.out.println("\nTotal number of Employees: "+ numEmployee);
+                System.out.println("Total Net: "+ totalNet);
+                System.out.println("Total Tax: "+ totalTax);
+                System.out.println("Total Insurance: "+ totalInsurance);
+                break;
+               
+            }
+        System.out.print("Enter Employee's Hourly Wage: ");
+        wage = p.nextDouble();
+        System.out.print("Enter Employee's Hourly Work for this Week: ");
+        hour = p.nextDouble();
+
+        System.out.println("\nEmployee's Payslip for July 24-26, 2017.");
+        System.out.println("Employee's Name: "+ name);
+        System.out.println("Hourly Rate: "+ wage);
+        System.out.println("Total Hours Worked: "+ hour);
+
+        Double gross = wage*hour;
+        Double tax = gross * 0.12;
+        Double netG = gross - tax - insurance;
+        totalTax = totalTax + tax;
+        totalNet = totalNet + netG;
+        totalInsurance = totalInsurance + insurance;
+        numEmployee = numEmployee + 1;
+
+        System.out.println("Gross: "+ gross);
+        System.out.println("Net Gross: "+ String.format("%.2f", netG));
+        System.out.println("12% Tax: "+ tax);
+        System.out.println("Insurance: "+ insurance);
+        x=0;
+        
+        }
+    }catch(Exception e){
+        System.out.println("There is something please enter agaian.");
+    }
+    
+    }
+}
+
+---------------------------------
+
+mport java.util.*;
+
+public class Main
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        //variable declaration and initialization
+        int numOfHeads = 0;
+        int numOfTails = 0;
+        
+        //get input from the user
+        for(int i=0; i<8; i++)
+        {
+            System.out.print("Toss "+(i+1)+": ");
+            char ch = sc.next().charAt(0);
+            
+            if(ch=='h')
+                numOfHeads++;
+            if(ch=='t')
+                numOfTails++;
+        }
+        
+        //display the result
+        System.out.println("Number of heads: "+numOfHeads);
+        System.out.println("Number of tails: "+numOfTails);
+        System.out.println("Percent heads: "+(float)numOfHeads/(numOfHeads+numOfTails)*100);
+        System.out.println("Percent tails: "+(float)numOfTails/(numOfHeads+numOfTails)*100);
+    }
+}
